@@ -106,4 +106,6 @@ result_analysis.ipynb
 
 ## 🧩 Acknowledgements
 
-This project builds upon the **RL4RS** framework and extends it with **hierarchical semantic representations** for structured reinforcement learning in large-scale recommendation scenarios.
+The code implementation and framework details of this project are built upon the work presented in the following paper. For more in-depth information regarding the framework architecture and implementation specifics, please refer directly to the original publication:
+
+🔗 Exploration and Regularization of the Latent Action Space in Recommendation ([arXiv:2302.03431](https://arxiv.org/pdf/2302.03431))
