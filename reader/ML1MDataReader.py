@@ -22,7 +22,7 @@ class ML1MDataReader(BaseReader):
                             help='item raw feature file_path')
         parser.add_argument('--item_meta_file', type=str, required=True, 
                             help='item raw feature file_path')
-        parser.add_argument('--rating_data_file', type=str, required=True, 
+        parser.add_argument('--rating_data_file', type=str, default=None,
                             help='item raw feature file_path')
         parser.add_argument('--max_seq_len', type=int, default=50, 
                             help='item raw feature file_path')

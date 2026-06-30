@@ -118,15 +118,15 @@ class ML1MEnvironment_GPU(BaseRLEnvironment):
                         'history_feature': (B, H, item_dim)
                         'history_feedback': (B, H, item_dim)}
         '''
-        self.empty_history_flag = params['empty_history'] if 'empty_history' not in params else True
+        self.empty_history_flag = params.get('empty_history', True)
         BS = params['batch_size']
         observation = {'batch_size': BS}
         if 'sample' in params:
             sample_info = params['sample']
         else:
-            self.batch_iter = iter(DataLoader(self.reader, batch_size = BS, shuffle = True, 
-                                              pin_memory = True, num_workers = 8))
-            sample_info = next(self.batch_iter)
+            self.iter = iter(DataLoader(self.reader, batch_size = BS, shuffle = True,
+                                        pin_memory = True, num_workers = 8))
+            sample_info = next(self.iter)
             sample_info = utils.wrap_batch(sample_info, device = self.user_response_model.device)
         self.current_observation = {
             'user_profile': sample_info['user_profile'],  # (B, user_dim)

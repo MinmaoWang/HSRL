@@ -119,7 +119,7 @@ class RL4RSEnvironment_GPU(BaseRLEnvironment):
                         'history_feature': (B, H, item_dim)
                         'history_feedback': (B, H, item_dim)}
         '''
-        self.empty_history_flag = params['empty_history'] if 'empty_history' not in params else True
+        self.empty_history_flag = params.get('empty_history', True)
         BS = params['batch_size']
         observation = {'batch_size': BS}
         if 'sample' in params:
